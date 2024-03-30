@@ -1,2 +1,2 @@
-# Hospital Management Studio
+# hospital
 Django Final Project
