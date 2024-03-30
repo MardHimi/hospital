@@ -1,2 +1,2 @@
 # hospital
-Django Final Project
+Django Project
