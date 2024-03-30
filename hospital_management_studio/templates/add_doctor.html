@@ -1,0 +1,72 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+
+    <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    .card-header {
+      background-color: #343a40;
+      border-radius: 20px 20px 0 0;
+      color: #fff;
+      text-align: center;
+    }
+    .form-control {
+      border-radius: 20px;
+    }
+    .btn-primary {
+      border-radius: 20px;
+      background-color: #343a40;
+      border-color: #343a40;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #343a40;
+      border-color: #343a40;
+    }
+    </style>
+    
+    
+    
+{% if error == "no" %}
+    <script>
+        alert('record saved successfully')
+        window.location = "{% url 'view_doctor' %}";
+    </script>
+{% endif %}   
+    
+{% if error == "yes" %}
+    <script>
+        alert('invalid login, try again')
+    </script>
+{% endif %} 
+    
+    
+<div class="container">
+    <br><br><br>
+    <h2 class="text-center">Add Doctor</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Doctor Name</label>
+        <input type="text" class="form-control" name="Name">
+        <label>Mobile</label>
+        <input type="text" class="form-control" name="mobile">
+        <label>Special</label>
+        <input type="text" class="form-control" name="special">
+        <br>
+        <input type="submit" value="submit" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% endblock content %}
+{% include 'footer.html' %}
+
+

@@ -1,0 +1,8 @@
+#h1{
+    color: #708090;
+}
+
+hr.rounded{
+    border-top: 10px solid lightblue;
+    border-radius: 5px;
+}

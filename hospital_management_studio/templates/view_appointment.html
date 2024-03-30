@@ -1,0 +1,62 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+
+<style>
+  
+  .table th {
+    background-color: #343a40;
+    color: #fff;
+    border-color: #343a40;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .table td {
+    vertical-align: middle;
+  }
+  .btn-danger {
+    background-color: #343a40;
+    border-color: #343a40;
+  }
+  .btn-danger:hover {
+    background-color: #343a40;
+    border-color: #343a40;
+  }
+</style>    
+    
+    
+    
+<div>
+    <br>
+    <h2 class="text-center">View Appointment</h2>
+    <br>
+    <table id="example" class="table table-hover display" style="width:100%">
+        <thead>
+        <tr>
+            <th>AppointmentId</th>
+            <th>DoctorName</th>
+            <th>PatientName</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Delete</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in doc %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.Doctor }}</td>
+            <td>{{ i.Patient }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.time }}</td>
+            <td><a href="{% url 'delete_appointment' i.id %}" onclick="return confirm('Are you sure?')" 
+                   class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
+{% include 'footer.html' %}
