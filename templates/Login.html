@@ -1,0 +1,90 @@
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+
+
+    <style>
+    /* Style for Login Page */
+        .container {
+            margin-top: 50px;
+            max-width: 400px;
+            background-color: #f8f9fa; /* Light gray background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40; /* Dark gray text color */
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ced4da; /* Light gray border */
+            border-radius: 5px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        .form-control:focus {
+            border-color: #007bff; /* Focus border color */
+            outline: 0; /* Remove default focus outline */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus shadow */
+        }
+        
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker color on hover */
+        }
+        
+        
+
+
+    </style>
+
+{% block content %}
+{% if error == "no" %}
+    <script>
+        alert('logged in successfully')
+        window.location = "{% url 'dashboard' %}";
+    </script>
+{% endif %}   
+    
+{% if error == "yes" %}
+    <script>
+        alert('invalid login, try again')
+    </script>
+{% endif %}
+
+    <br><br>
+<div class="container">
+    <h2 class="text-center">Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Admin Name</label>
+        <input type="text" class="form-control" name="uname">
+        <label>Password</label>
+        <input type="password" class="form-control" name="pwd">
+
+        <input type="submit" value="login" class="form-control btn btn-primary">
+    </form>
+</div>
+
+{% endblock content %}
+{% include 'footer.html' %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'base.html' %}
+{% include 'navigation.html' %}
+
+<style>
+    .myDivStyle {
+            background-color: #f8f9fa; /* Background color */
+            padding: 20px; /* Padding */
+            border-radius: 10px; /* Rounded corners */
+            margin-bottom: 20px; /* Bottom margin */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .myDivStyle:hover {
+            box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3); /* Box shadow on hover */
+            transform: translateY(-10px); /* Move up on hover */
+        }
+
+        .myDivStyle h4 {
+            color: #6c757d; /* Text color */
+        }
+
+        .myDivStyle p {
+            margin-top: 10px; /* Top margin for paragraphs */
+            color: #6c757d; /* Text color */
+        }
+
+        .myDivStyle a {
+            color: inherit; /* Inherit text color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .myDivStyle a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        
+        .contact-heading {
+            text-align: center; /* Center align text */
+            color: #6c757d; /* Text color */
+            margin-top: 20px; /* Top margin */
+            margin-bottom: 40px; /* Bottom margin */
+        }
+    
+</style>
+
+
+
+{% block content %}
+    <div class="container" style="margin-top: 40px">
+        <br><br>
+        <h1 class="contact-heading">Contact Us</h1>
+        
+        <div class="row mt-5 text-center">
+            <div class="col-lg-3 myDivStyle">
+                <h4><i class="fas fa-phone-square"> Contact</i></h4>
+                <!-- Removed text-danger class from here -->
+                <p class="font-weight-bold mt-3"><a href="tel: +995555000000">+995555000000</a></p>
+
+            </div>
+            <div class="col-lg-3 myDivStyle">
+                <h4><i class="fa fa-envelope"></i> Send Email</h4>
+                <p class="font-weight-bold mt-3"><a href="mailto:abc@gmail.com">abc@gmail.com</a></p>
+            </div>
+            <div class="col-lg-3 myDivStyle">
+                <h4><i class="fa fa-address-card" aria-hidden="true"></i> Office Address</h4>
+                <p class="font-weight-bold mt-3"><a href="http://maps.google.com/maps?q=georgia">Georgia, Tbilisi</a></p>
+            </div>
+            <div class="col-lg-3 myDivStyle">
+                <h4><i class="fa fa-calendar" aria-hidden="true"></i> Office Time</h4>
+                <p class="font-weight-bold mt-3"><a href=""> 10AM to 5PM </a></p>
+            </div>
+        </div>
+    </div>
+   
+{% endblock content %}
+{% include 'footer.html' %}
+
+</body>
+</html>

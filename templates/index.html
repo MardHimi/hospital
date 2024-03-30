@@ -1,0 +1,89 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navigation.html' %}
+
+{% block content %}
+    <style>
+        /* Style for the Admin Dashboard heading */
+        .dashboard-heading {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+            font-size: 36px;
+        }
+
+        /* Style for the container */
+        .dashboard-container {
+            margin-top: 50px;
+        }
+
+        /* Style for the column div */
+        .myDivStyle {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the headings inside the column div */
+        .myDivStyle h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .myDivStyle h4 {
+            color: #333;
+            font-size: 20px;
+        }
+        
+        .myDivStyle:hover {
+            transform: translateY(-5px); /* Move the div upwards on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+        }
+
+        /* Style for the horizontal rule */
+        .rounded {
+            border-top: 2px solid #333;
+            border-radius: 5px;
+        }
+        
+        .dashboard-heading {
+        text-align: center;
+        margin-top: 50px;
+        color: #333; /* Text color */
+        font-size: 36px;
+        font-weight: bold; /* Make the text bold */
+        text-transform: uppercase; /* Convert text to uppercase */
+        letter-spacing: 2px; /* Add spacing between letters */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow */
+    }
+    </style>
+
+    <br><br>
+    <h1 class="dashboard-heading">Admin Dashboard</h1>
+    <br>
+
+    <div class="container dashboard-container">
+        <div class="row">
+            <div class="col-sm-4 myDivStyle">
+                <h2>{{ d }}</h2>
+                <a href="{% url 'view_doctor' %}"><h4>Doctors</h4></a>
+                <hr class="rounded">
+            </div>
+            <div class="col-sm-4 myDivStyle">
+                <h2>{{ p }}</h2>
+                <a href="{% url 'view_patient' %}"><h4>Patients</h4></a>
+                <hr class="rounded">
+            </div>
+            <div class="col-sm-4 myDivStyle">
+                <h2>{{ a }}</h2>
+                <a href="{% url 'view_appointment' %}"><h4>Appointments</h4></a>
+                <hr class="rounded">
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% include 'footer.html' %}
